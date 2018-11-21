@@ -1,4 +1,5 @@
 import Turbulence_velocity_field_initializer
+import Power_Spectrum
 
 def task_write_binary():
 
@@ -14,3 +15,17 @@ def task_write_binary():
                     'default':'vel_init'}
                 ],
             }
+
+def draw_power_spectrum():
+
+    return {
+            'actions': [
+                (Power_Spectrum.draw_power_spectrum,),],
+            'params':[
+                {'name':'N', 'short':'N', 'type':int, 'default':64},
+                {'name':'bins', 'short':'bins', 'type':int, 'default':32},
+                {'name':'figname', 'short':'fig', 'type':str,
+                    'default':'power_spectrum'}
+                ],
+            }
+
