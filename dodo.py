@@ -16,7 +16,7 @@ def task_write_binary():
                 ],
             }
 
-def draw_power_spectrum():
+def task_draw_power_spectrum():
 
     return {
             'actions': [

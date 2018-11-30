@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def draw_ps(N=64,bins=32,figname='power_spectrum')
+def draw_ps(N=64,bins=32,figname='power_spectrum'):
     data=np.fromfile('vel_init')
     data=data.reshape((3,N,N,N))
 
