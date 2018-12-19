@@ -6,8 +6,8 @@ def draw_ps(N=64,bins=32,figname='power_spectrum'):
     #data=np.fromfile('vel_init')
     #data=data.reshape((3,N,N,N))
     
-    with h5py.File('vel_init','r') as f:
-        data=f['dataset_1'][:]
+    with h5py.File('vel_init.h5','r') as f:
+        data=f['velocity_dataset'][:]
 
     vx=data[0,:,:,:]
     vy=data[1,:,:,:]

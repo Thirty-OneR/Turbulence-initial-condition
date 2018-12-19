@@ -17,7 +17,7 @@ def task_write_velocity():
             'targets': ['vel_init.h5'],
             }
 
-def task_write_denisty():
+def task_write_density():
 
     return {
             'actions': [
