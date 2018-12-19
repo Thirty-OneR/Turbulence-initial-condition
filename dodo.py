@@ -1,5 +1,7 @@
 import Turbulence_velocity_field_initializer
 import Power_Spectrum
+import Density_field_initializer
+import analyze_output
 
 def task_write_velocity():
 
@@ -49,4 +51,16 @@ def task_draw_power_spectrum():
                     'default':'power_spectrum'}
                 ],
             }
+
+
+def task_make_slice():
+    return {
+            'actions': [
+                (analyze_output.run_slice,),],
+            'params':[]
+            }
+
+def task_combine_data():
+    return {'actions':[['python','combine.py']]}
+
 

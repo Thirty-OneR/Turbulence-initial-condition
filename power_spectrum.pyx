@@ -1,10 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
+import h5py
 
 def draw_ps(N=64,bins=32,figname='power_spectrum'):
-    data=np.fromfile('vel_init')
-    data=data.reshape((3,N,N,N))
+    #data=np.fromfile('vel_init')
+    #data=data.reshape((3,N,N,N))
+    
+    with h5py.File('vel_init','r') as f:
+        data=f['dataset_1'][:]
 
     vx=data[0,:,:,:]
     vy=data[1,:,:,:]
