@@ -1,6 +1,0 @@
-'write_binary', (0, 103)
-'write_denisty', (1024, 56)
-'write_velocity', (1536, 56)
-'make_slice', (2048, 56)
-'draw_power_spectrum', (2560, 56)
-'combine_data', (3072, 56)

@@ -13,14 +13,11 @@ def task_write_velocity():
                 {'name':'index', 'short':'index', 'type':float, 'default':1.5},
                 {'name':'seed', 'short':'seed', 'type':int,
                     'default':0x4d3d3d3},
-                {'name':'output_fn', 'short':'output_fn', 'type':str,
-                    'default':'vel_init'},
-                {'name':'binary', 'short':'binary', 'type':int,
-                    'default':'False'}
                 ],
+            'targets': ['vel_init.h5'],
             }
 
-def task_write_denisty():
+def task_write_density():
 
     return {
             'actions': [
@@ -31,11 +28,8 @@ def task_write_denisty():
                 {'name':'sigma', 'short':'sigma', 'type':float, 'default':0.1},
                 {'name':'seed', 'short':'seed', 'type':int,
                     'default':0x4d3d3d3},
-                {'name':'output_fn', 'short':'output_fn', 'type':str,
-                    'default':'den_init'},
-                {'name':'binary', 'short':'binary', 'type':int,
-                    'default':'False'}
                 ],
+            'targets': ['den_init.h5'],
             }
 
 
@@ -50,6 +44,7 @@ def task_draw_power_spectrum():
                 {'name':'figname', 'short':'fig', 'type':str,
                     'default':'power_spectrum'}
                 ],
+            'targets': ['power_spectrum.png'],
             }
 
 
@@ -57,10 +52,13 @@ def task_make_slice():
     return {
             'actions': [
                 (analyze_output.run_slice,),],
-            'params':[]
+            'params':[],
+            'targets': ['UniformGridData_Slice_x_density.png'],
             }
 
 def task_combine_data():
-    return {'actions':[['python','combine.py']]}
+    return {'actions':[['python','combine.py']],
+            'targets': ['dataset.h5'],
+            }
 
 

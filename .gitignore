@@ -1,0 +1,7 @@
+*.pyc
+*.pyd
+.*.swp
+*.so
+__pycache__/
+*.h5
+.doit.*
