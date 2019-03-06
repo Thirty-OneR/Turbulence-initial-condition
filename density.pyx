@@ -6,7 +6,7 @@ cimport libc.math as cmath
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.cdivision(True)
-def Density_Generator(_dims, seed,mu=1,sigma=0.1):
+def Density_Generator(_dims, seed,mu=1.0,sigma=0.1):
     cdef np.ndarray[np.float64_t, ndim=3] density, ds
     cdef int dims[3]
     dims[0] = _dims[0]
