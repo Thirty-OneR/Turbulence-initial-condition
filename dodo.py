@@ -62,4 +62,8 @@ def task_combine_data():
             'targets': ['dataset.h5'],
             }
 
+def task_convert_to_gamer():
+    return {'actions':[['python','convert_to_gamer_format.py']],
+            'targets': ['UM_IC'],
+            }
 
