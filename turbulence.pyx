@@ -27,9 +27,9 @@ def Turbulence_Generator(_dims, index, kmin, kmax, leftedge, cellwidth, seed):
         + (kys*kys)[None,:,None]
         + (kzs*kzs)[None,None,:])
     
-    Ax = rand.rand(dims[0], dims[1], dims[2])
-    Ay = rand.rand(dims[0], dims[1], dims[2])
-    Az = rand.rand(dims[0], dims[1], dims[2])
+    Ax = (rand.rand(dims[0], dims[1], dims[2])-0.5)*2
+    Ay = (rand.rand(dims[0], dims[1], dims[2])-0.5)*2
+    Az = (rand.rand(dims[0], dims[1], dims[2])-0.5)*2
     AA = np.sqrt(Ax**2 + Ay**2 + Az**2)
     Ax /= AA
     Ay /= AA

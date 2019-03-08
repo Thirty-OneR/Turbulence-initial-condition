@@ -15,7 +15,7 @@ def Density_Generator(_dims, seed,mu=1.0,sigma=0.1):
     
     rand=np.random.RandomState(seed)
 
-    density= rand.normal(mu,sigma,size=(dims[0],dims[1],dims[2]))
+    density= rand.lognormal(mu,sigma,size=(dims[0],dims[1],dims[2]))
     
     ds= (np.fft.ifftn(density).real)
     
