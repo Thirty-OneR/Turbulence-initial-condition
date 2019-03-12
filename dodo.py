@@ -25,6 +25,7 @@ def task_write_density():
                 (Density_field_initializer.run_generator,),],
             'params':[
                 {'name':'N', 'short':'N', 'type':int, 'default':64},
+                {'name':'index','short':'index', 'type':float, 'default':1.5},
                 {'name':'mu', 'short':'mu', 'type':float, 'default':1.0},
                 {'name':'sigma', 'short':'sigma', 'type':float, 'default':0.1},
                 {'name':'seed', 'short':'seed', 'type':int,
@@ -49,13 +50,13 @@ def task_write_density():
 #            }
 
 
-#def task_make_slice():
-#    return {
-#            'actions': [
-#                (analyze_output.run_slice,),],
-#            'params':[],
-#            'targets': ['UniformGridData_Slice_x_density.png'],
-#            }
+def task_make_slice():
+    return {
+            'actions': [
+                (analyze_output.run_slice,),],
+            'params':[],
+            'targets': ['UniformGridData_Slice_x_density.png'],
+            }
 
 def task_combine_data():
     return {'actions':[['python','combine.py']],

@@ -28,5 +28,5 @@ data["All"] = np.asarray((data["density"],data["px"],data["py"],data["pz"],data[
 print(np.isnan(data["All"]).sum() / data["All"].size)
 
 with open("UM_IC", "wb") as f:
-        data["All"].astype("float32").tofile(f)
+        data["All"].T.astype("float32").tofile(f)
 
