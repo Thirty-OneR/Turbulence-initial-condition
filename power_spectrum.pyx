@@ -6,14 +6,13 @@ def draw_ps(N=64,bins=32,figname='power_spectrum'):
     #data=np.fromfile('vel_init')
     #data=data.reshape((3,N,N,N))
     
-    with h5py.File('vel_init.h5','r') as f:
-        data=f['velocity_dataset'][:]
+    with h5py.File('dataset.h5','r') as f:
+        den=f['density'][:]
+        vx=f['velocity_x'][:]
+        vy=f['velocity_y'][:]
+        vz=f['velocity_z'][:]
 
-    vx=data[0,:,:,:]
-    vy=data[1,:,:,:]
-    vz=data[2,:,:,:]
-
-    E = (vx*vx)[:,:,:]+(vy*vy)[:,:,:]+(vz*vz)[:,:,:]
+    E = den[:,:,:]*((vx*vx)[:,:,:]+(vy*vy)[:,:,:]+(vz*vz)[:,:,:])
 
     ft=np.fft.fftn(E)
     power=ft.real*ft.real

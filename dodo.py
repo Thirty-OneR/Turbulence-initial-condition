@@ -50,6 +50,34 @@ def task_write_density():
 #            }
 
 
+#def task_make_slice():
+#    return {
+#            'actions': [
+#                (analyze_output.run_slice,),],
+#            'params':[],
+#            'targets': ['UniformGridData_Slice_x_density.png'],
+#            }
+
+def task_combine_data():
+    return {'actions':[['python','combine.py']],
+            'targets': ['dataset.h5'],
+            }
+
+def task_draw_power_spectrum():
+
+    return {
+            'actions': [
+                (Power_Spectrum.draw_power_spectrum,),],
+            'params':[
+                {'name':'N', 'short':'N', 'type':int, 'default':64},
+                {'name':'bins', 'short':'bins', 'type':int, 'default':32},
+                {'name':'figname', 'short':'fig', 'type':str,
+                    'default':'power_spectrum'}
+                ],
+            'targets': ['power_spectrum.png'],
+            }
+
+
 def task_make_slice():
     return {
             'actions': [
@@ -58,10 +86,6 @@ def task_make_slice():
             'targets': ['UniformGridData_Slice_x_density.png'],
             }
 
-def task_combine_data():
-    return {'actions':[['python','combine.py']],
-            'targets': ['dataset.h5'],
-            }
 
 def task_convert_to_gamer():
     return {'actions':[['python','convert_to_gamer_format.py']],
