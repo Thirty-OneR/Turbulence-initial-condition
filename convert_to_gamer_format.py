@@ -8,7 +8,10 @@ for field in ["density", "velocity_x", "velocity_y", "velocity_z"]:
     data[field] = f[field][:]
     f.close()
 
-data['density'] -= (data['density'].min() * 1.001)
+#data['density'] -= (data['density'].min() * 1.001)
+data['density'] = (data['density']-data['density'].min())/(data['density'].max()-data['density'].min())
+data['density']=np.maximum(data['density'],1e-10)
+
 data["vx2"] = data["velocity_x"] * (data["density"]**(-1/2))
 data["vy2"] = data["velocity_y"] * (data["density"]**(-1/2))
 data["vz2"] = data["velocity_z"] * (data["density"]**(-1/2))

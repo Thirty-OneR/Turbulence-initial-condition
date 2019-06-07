@@ -39,6 +39,7 @@ def Density_Generator(_dims,index,kmin,kmax, seed,mu=1.0,sigma=0.1):
     #density[k_wave < kmin] = 0.0
 
     ds=np.fft.ifftn(density).real
+    #ds[:] = 1.0
     
     #density = rand.lognormal((k_wave)**(-0.5*index-1))
 
